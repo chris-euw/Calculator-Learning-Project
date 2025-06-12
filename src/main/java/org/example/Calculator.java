@@ -113,10 +113,10 @@ public class Calculator {
                             //evaluate expressions
                             if (A != null) {
                                 B = displayLabel.getText();
-                                double numA = Double.parseDouble(A);
+                                double numA = Double.parseDouble(A); //convert A & B to Double
                                 double numB = Double.parseDouble(B);
 
-                                //perform operation
+                                //perform operation (+-/*)
                                 if (operator == "+") {
                                     displayLabel.setText(removeZeroDecimal(numA + numB));
                                 } else if (operator == "-") {
@@ -132,28 +132,31 @@ public class Calculator {
                         } else if ("+-÷×".contains(buttonValue)) {
                             //store first number and operator
                             if (operator == null) {
-                                A = displayLabel.getText();
-                                displayLabel.setText(("0"));
-                                B = "0";
+                                A = displayLabel.getText();     // Save current value as operand A
+                                displayLabel.setText(("0"));    // Reset display to accept operand B
+                                B = "0";                        // Initialize B (not strictly necessary here)
                             }
-                            operator = buttonValue;
+                            operator = buttonValue; //store the operator
                         }
 
-                        // Handle top function buttons
+                        // handle top function buttons (AC, +/-, %)
                         } else if (Arrays.asList(topSymbols).contains(buttonValue)) {
                             if (buttonValue == "AC") {
+                                // reset calculator to initial state
                                 clearALl();
                                 displayLabel.setText("0");
                             } else if (buttonValue.equals("+/-")) {
+                                // Toggle the sign of the current number
                                 double numDisplay = Double.parseDouble((displayLabel.getText()));
                                 numDisplay *= -1;
                                 displayLabel.setText(removeZeroDecimal(numDisplay));
                             } else if (buttonValue.equals("%")) {
+                                // convert number to percentage
                                 double numDisplay = Double.parseDouble((displayLabel.getText()));
                                 numDisplay /= 100;
                                 displayLabel.setText(removeZeroDecimal(numDisplay));
                             }
-                            // Handle numbers and decimal point
+                            // handle numbers and decimal point
                             } else {
                             if (buttonValue == ".") {
                                 if (!displayLabel.getText().contains(buttonValue)) {
