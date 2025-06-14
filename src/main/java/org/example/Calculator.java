@@ -3,10 +3,8 @@ package org.example;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 //imports for Graphics Library
-import javax.sound.sampled.Line;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 //Importing for the Graphics of the Buttons
@@ -19,10 +17,10 @@ public class Calculator {
     int boardheight = 540;
 
     //Colors for the Calculator UI
-    Color NewColorBG = new Color(250, 243, 221); //Background color
-    Color NewColorNBR = new Color(181, 234, 215); //Number Button color
-    Color NewColorEQBT = new Color(255, 183, 178); //Operator Button color
-    Color NewColorBrdr = new Color(214, 209, 196); //Borderline Color
+    Color ColorBackground = new Color(250, 243, 221); //Background color
+    Color ColorNumberButtons = new Color(181, 234, 215); //Number Button color
+    Color ColorOperatorButtons = new Color(255, 183, 178); //Operator Button color
+    Color ColorBorder = new Color(214, 209, 196); //Borderline Color
     Font NewFont = new Font("Arial", Font.PLAIN, 80); //Font and Size
 
     //Array with the layout of the Strinngs ButtonValues
@@ -61,8 +59,8 @@ public class Calculator {
 
         //Modifying the Display of the Label
         // Set background color of the display label
-        displayLabel.setBackground(NewColorBG);
-        displayLabel.setForeground(NewColorNBR);
+        displayLabel.setBackground(ColorBackground);
+        displayLabel.setForeground(ColorNumberButtons);
         displayLabel.setFont(NewFont); //sets Font
         displayLabel.setHorizontalAlignment(JLabel.RIGHT); //aligns the number 0 to the right
         displayLabel.setText("0"); //default text
@@ -76,7 +74,7 @@ public class Calculator {
         //Buttons add Layout
         buttonsPanel.setLayout(new GridLayout(5, 4));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        buttonsPanel.setBackground(NewColorBG);
+        buttonsPanel.setBackground(ColorBackground);
         frame.add(buttonsPanel);
 
         //created Buttons
@@ -86,17 +84,17 @@ public class Calculator {
             button.setFont(new Font("Arial", Font.PLAIN, 30));
             button.setText(buttonValue);
             button.setFocusable(false);
-            button.setBorder(new LineBorder(NewColorBrdr));
+            button.setBorder(new LineBorder(ColorBorder));
 
             //Assign Button colors based on state
             if (Arrays.asList(topSymbols).contains(buttonValue)) {
-                button.setBackground(NewColorNBR);
-                button.setForeground(NewColorBG);
+                button.setBackground(ColorNumberButtons);
+                button.setForeground(ColorBackground);
             } else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
-                button.setBackground(NewColorEQBT);
+                button.setBackground(ColorOperatorButtons);
                 button.setForeground(Color.WHITE);
             } else {
-                button.setBackground(NewColorNBR);
+                button.setBackground(ColorNumberButtons);
                 button.setForeground(Color.WHITE);
             }
             buttonsPanel.add(button);
