@@ -47,14 +47,15 @@ public class Calculator {
     String operator = null; //Current operand
     String B = null; //second operand
 
-    // Constructor: sets up the calculator UI and event handling
+    // Constructor: sets up the calculator UI and event handling,
+    // used for centering,
+    // user cant resize the window
     Calculator() {
         //Modifying the Window Visibility & Style
-        //frame.setVisible(true);
         frame.setSize(boardwidth, boardheight);
-        frame.setLocationRelativeTo(null); //used for centering
-        frame.setResizable(false); //user cant resize the window
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //user clicks x closes the window
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         //Modifying the Display of the Label
