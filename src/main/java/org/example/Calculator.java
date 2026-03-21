@@ -188,4 +188,5 @@ public class Calculator {
         }
         return Double.toString(numDisplay);
     }
+    //now u can calculate all ur needs
 }
