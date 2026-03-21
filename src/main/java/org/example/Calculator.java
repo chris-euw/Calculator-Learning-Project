@@ -17,7 +17,7 @@ public class Calculator {
     int boardheight = 540;
 
     //Colors for the Calculator UI
-    Color ColorBackground = new Color(250, 243, 221); //Background color
+    Color ColorBG = new Color(250, 243, 221); //Background color
     Color ColorNumberButtons = new Color(181, 234, 215); //Number Button color
     Color ColorOperatorButtons = new Color(255, 183, 178); //Operator Button color
     Color ColorBorder = new Color(214, 209, 196); //Borderline Color
@@ -60,7 +60,7 @@ public class Calculator {
 
         //Modifying the Display of the Label
         // Set background color of the display label
-        displayLabel.setBackground(ColorBackground);
+        displayLabel.setBackground(ColorBG);
         displayLabel.setForeground(ColorNumberButtons);
         displayLabel.setFont(NewFont); //sets Font
         displayLabel.setHorizontalAlignment(JLabel.RIGHT); //aligns the number 0 to the right
@@ -75,7 +75,7 @@ public class Calculator {
         //Buttons add Layout
         buttonsPanel.setLayout(new GridLayout(5, 4));
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        buttonsPanel.setBackground(ColorBackground);
+        buttonsPanel.setBackground(ColorBG);
         frame.add(buttonsPanel);
 
         //created Buttons
@@ -90,7 +90,7 @@ public class Calculator {
             //Assign Button colors based on state
             if (Arrays.asList(topSymbols).contains(buttonValue)) {
                 button.setBackground(ColorNumberButtons);
-                button.setForeground(ColorBackground);
+                button.setForeground(ColorBG);
             } else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
                 button.setBackground(ColorOperatorButtons);
                 button.setForeground(Color.WHITE);
